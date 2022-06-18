@@ -1,20 +1,11 @@
-const btn = document.querySelector("[data-form-btn]");
+import { addTask } from "./components/addTask.js";
+import { displayTask } from "./components/displayTask.js";
 
-const createTask = (e) => {
-  e.preventDefault();
-  const input = document.querySelector("[data-form-input]");
-  const value = input.value;
-  const list = document.querySelector("[data-list]")
-  const task = document.createElement("li")
-  task.classList.add("card")
-  const content = `<div>
-            <i class="far fa-check-square icon"></i>
-            <span class="task">${value}</span>
-                  </div>
-                  <i class="fas fa-trash-alt trashIcon icon"></i>`;
-  task.innerHTML = content ;
-  list.appendChild(task);               
-  input.value = "";
-};
+(() => {
+  const btn = document.querySelector("[data-form-btn]");
 
-btn.addEventListener("click", createTask);
+
+
+  btn.addEventListener("click", addTask);
+  displayTask();
+})();
